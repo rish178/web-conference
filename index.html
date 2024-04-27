@@ -1,0 +1,29 @@
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <script src='https://webrtc.cryptoinfograph.com/external_api.js' async></script>
+        <style>html, body, #jaas-container { height: 100%; }</style>
+        <script type="text/javascript">
+          const searchParams = new URLSearchParams(window.location.search);
+          const roomName = searchParams.get('room')
+          if(!!roomName){
+            window.onload = () => {
+              const api = new JitsiMeetExternalAPI("webrtc.cryptoinfograph.com", {
+                roomName: roomName,
+                configOverwrite: {
+                startWithAudioMuted: true,
+                startWithVideoMuted: true
+                },
+                parentNode: document.querySelector('#jaas-container'),
+                // Make sure to include a JWT if you intend to record,  
+                // make outbound calls or use any other premium features!
+                // jwt: "eyJraWQiOiJ2cGFhcy1tYWdpYy1jb29raWUtZjBhMWRhMzJiMTY0NDA1YjlkM2U4YjY3NTU0YjMwMGQvMGI2NThjLVNBTVBMRV9BUFAiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJqaXRzaSIsImlzcyI6ImNoYXQiLCJpYXQiOjE3MTM1MzE2ODIsImV4cCI6MTcxMzUzODg4MiwibmJmIjoxNzEzNTMxNjc3LCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtZjBhMWRhMzJiMTY0NDA1YjlkM2U4YjY3NTU0YjMwMGQiLCJjb250ZXh0Ijp7ImZlYXR1cmVzIjp7ImxpdmVzdHJlYW1pbmciOmZhbHNlLCJvdXRib3VuZC1jYWxsIjpmYWxzZSwic2lwLW91dGJvdW5kLWNhbGwiOmZhbHNlLCJ0cmFuc2NyaXB0aW9uIjpmYWxzZSwicmVjb3JkaW5nIjpmYWxzZX0sInVzZXIiOnsiaGlkZGVuLWZyb20tcmVjb3JkZXIiOmZhbHNlLCJtb2RlcmF0b3IiOnRydWUsIm5hbWUiOiJUZXN0IFVzZXIiLCJpZCI6Imdvb2dsZS1vYXV0aDJ8MTA3Njc3NjM1NDk1NTM1NTUyNDYyIiwiYXZhdGFyIjoiIiwiZW1haWwiOiJ0ZXN0LnVzZXJAY29tcGFueS5jb20ifX0sInJvb20iOiIqIn0.Dca_bgjx2_haJ4HYvlknJznJHDR6xwYs11MHSdfE6hzscn37J0lCEmZKym3OnCMrKJCs-YLlHE6sSsGEMuqjtbFi1O9T0Z8zGOJaoN0FKorX0W--Sdxg6yWHiLadjjDP4qOvYk6dAgize6P2APn0O5w-LHe2ltvoe_vH7SGfo6IkmIRnqss4sTt8GqHXftViN8WGxoLNCvT_VZi6nYxdFSoxku4fFOS5RI90i6pCpW5glbVHtrNdzmkgQuAu2QvQQwddYyYB6xGzghtb5RotnR26k2nbGK_e-GfuM_6cepD450LxXP2jbuMG-fqE_xJA7Mwfn7LjqCjdpEOUHgN4Wg"
+              });
+          }
+          }
+        </script>
+      </head>
+      <body><div id="jaas-container"></div></body>
+    </html>
+  
